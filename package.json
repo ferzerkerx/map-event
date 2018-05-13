@@ -1,0 +1,17 @@
+{
+  "name": "world-location-event",
+  "version": "1.0.0",
+  "description": "highlights for a few seconds a region in a map based on input event data",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "d3": "^5.4.0"
+  },
+  "devDependencies": {
+    "babel-loader": "^7.1.4",
+    "webpack": "^4.8.3"
+  }
+}
