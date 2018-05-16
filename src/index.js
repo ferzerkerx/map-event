@@ -1,4 +1,4 @@
-import { MapComponent } from './MapComponent';
+import { MapComponent } from './MapComponent/MapComponent';
 
 import * as topojson from 'topojson';
 

@@ -2,6 +2,9 @@ import { MouseMapEvent } from './MouseMapEvent';
 
 import * as d3 from 'd3';
 
+import styles from './map.css';
+
+
 class MapComponent {
   constructor(config, mapData) {
     const { height } = config;

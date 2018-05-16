@@ -1,0 +1,7 @@
+.tooltip {
+    position: absolute;
+    opacity: 0.9;
+    background-color: whitesmoke;
+    color: blue;
+    font-weight: bold;
+}

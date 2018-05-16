@@ -6,7 +6,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
 module.exports = {
-  entry: './src/js/index.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.bundle.js'
@@ -35,6 +35,11 @@ module.exports = {
             presets: ['babel-preset-env', 'babel-preset-es2015']
           }
         }
+      },
+      {
+        test: /\.css/,
+        exclude: /node_modules/,
+        loaders: ['style-loader', 'css-loader'],
       }
     ]
   },
