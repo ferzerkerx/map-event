@@ -13,7 +13,7 @@ const config = {
   },
 
   regionDisplayDataExtractor: regionData => {
-    return `Name: ${regionData.properties.NAME_1} <br/>`;
+    return `${regionData.properties.NAME_1} <br/>`;
   }
 };
 
