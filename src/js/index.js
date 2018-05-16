@@ -9,7 +9,7 @@ const config = {
   height: 768,
   width: 1024,
   featureExtractor: mapData => {
-    return topojson.feature(mapData, mapData.objects.asd1).features;
+    return topojson.feature(mapData, mapData.objects.state_data).features;
   },
 
   regionDisplayDataExtractor: regionData => {
