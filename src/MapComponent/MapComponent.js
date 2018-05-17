@@ -33,6 +33,10 @@ class MapComponent {
       config.featureExtractor || MapComponent._noOpFeatureExtractor;
     this.regionDisplayDataExtractor =
       config.regionDisplayDataExtractor || MapComponent._regionDisplayData;
+
+    this.regionClassMapper =
+      config.regionClassMapper || MapComponent._regionClassMapper;
+
     this.tooltip = tooltip;
     this.path = path;
     this.mapData = mapData;
@@ -46,6 +50,7 @@ class MapComponent {
       svg,
       featureExtractor,
       regionDisplayDataExtractor,
+      regionClassMapper,
       mapData
     } = this;
     svg
@@ -57,6 +62,10 @@ class MapComponent {
       .attr('fill', 'green')
       .attr('stroke', 'orange')
       .attr('d', path)
+      .style('opacity', 1)
+      .attr('class', function(regionData) {
+        return regionClassMapper(regionData);
+      })
       .on('mouseover', function(regionData) {
         const regionPath = this;
         const regionDisplayData = regionDisplayDataExtractor(regionData);
@@ -118,6 +127,10 @@ class MapComponent {
 
   static _regionDisplayData(regionData) {
     return regionData.toString();
+  }
+
+  static _regionClassMapper(regionData) {
+    throw Error(`Region class mapper not set ${regionData}`);
   }
 }
 
