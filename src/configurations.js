@@ -2,7 +2,6 @@ import * as d3 from 'd3'
 import * as topojson from 'topojson'
 
 const defaultConfig = {
-  mapUrl: 'http://localhost:8080/json/mex0.json',
   mapDomClass: 'map',
   toolTipDomClass: 'tooltip',
   height: 768,
@@ -29,7 +28,6 @@ const defaultConfig = {
 };
 
 const deConfig = Object.assign({}, defaultConfig, {
-  mapUrl: 'http://localhost:8080/json/de0.json',
   projection: (width, height) => {
     return d3
       .geoMercator()
@@ -38,7 +36,6 @@ const deConfig = Object.assign({}, defaultConfig, {
   }});
 
 const frConfig = Object.assign({}, defaultConfig, {
-  mapUrl: 'http://localhost:8080/json/fra0.json',
   projection: (width, height) => {
     return d3
       .geoMercator()
@@ -47,7 +44,6 @@ const frConfig = Object.assign({}, defaultConfig, {
   }});
 
 const mxConfig = Object.assign({}, defaultConfig, {
-  mapUrl: 'http://localhost:8080/json/mex0.json',
   scale: 2000,
   projection: (width, height) => {
     return d3

@@ -2,8 +2,8 @@
 
 ## Overview 
 - Render a map based on a topojson file
-- Highlight areas in a map when an even occurs matching the region name
-- Scrollover and see region information
+- Highlight areas in a map when an event occurs matching the region name
+- mouse over provides shows a toolip with region information
 
 
 ## How to create a topojson map

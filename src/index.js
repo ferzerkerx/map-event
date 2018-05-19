@@ -52,7 +52,7 @@ const loadMap = (countryCode) => {
   stopListeningNotifications();
   document.getElementsByClassName(config.mapDomClass)[0].innerHTML = '';
 
-  fetch(config.mapUrl)
+  fetch(`http://localhost:8080/json/${countryCode}.json`)
     .then(function(response) {
       return response.json();
     })
