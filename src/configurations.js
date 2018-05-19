@@ -1,5 +1,5 @@
-import * as d3 from 'd3'
-import * as topojson from 'topojson'
+import * as d3 from 'd3';
+import * as topojson from 'topojson';
 
 const defaultConfig = {
   mapDomClass: 'map',
@@ -33,7 +33,8 @@ const deConfig = Object.assign({}, defaultConfig, {
       .geoMercator()
       .scale(defaultConfig.scale)
       .translate([-60, height * 5]);
-  }});
+  }
+});
 
 const frConfig = Object.assign({}, defaultConfig, {
   projection: (width, height) => {
@@ -41,7 +42,8 @@ const frConfig = Object.assign({}, defaultConfig, {
       .geoMercator()
       .scale(defaultConfig.scale)
       .translate([width / 2, height * 4.5]);
-  }});
+  }
+});
 
 const mxConfig = Object.assign({}, defaultConfig, {
   scale: 2000,
@@ -50,14 +52,13 @@ const mxConfig = Object.assign({}, defaultConfig, {
       .geoAlbers()
       .scale(mxConfig.scale)
       .translate([width / 1.5, -100]);
-  }});
-
+  }
+});
 
 const configurations = {
-  'de': deConfig,
-  'fr': frConfig,
-  'mx': mxConfig,
+  de: deConfig,
+  fr: frConfig,
+  mx: mxConfig
 };
 
-
-export {configurations};
+export { configurations };
