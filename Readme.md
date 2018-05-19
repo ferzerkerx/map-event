@@ -27,3 +27,7 @@
 ### Other sites to download shapefiles from    
 - https://www.statsilk.com/maps/download-free-shapefile-maps#download-country-shapefile-maps
 - https://wiki.openstreetmap.org/wiki/Shapefiles
+
+## GADM License
+This project uses maps from gadm and therefore needs to use the same license if the same map data is used
+https://gadm.org/license.html

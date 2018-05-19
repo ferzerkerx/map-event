@@ -7,12 +7,9 @@ import styles from './map.css';
 
 class MapComponent {
   constructor(config, mapData) {
-    const { height } = config;
+    const { height, width } = config;
 
-    const projection = d3
-      .geoMercator()
-      .scale(3600)
-      .translate([-60, height * 5.4]);
+    const projection = config.projection(width, height);
     const tooltip = d3.select(config.toolTipDomElement).style('opacity', 0);
 
     const path = d3.geoPath().projection(projection);
