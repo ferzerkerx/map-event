@@ -54,29 +54,32 @@ const loadMap = countryCode => {
 
   const config = configurations[countryCode];
 
+  //TODO delete all notifications
   stopListeningNotifications();
   document.getElementsByClassName(config.mapDomClass)[0].innerHTML = '';
 
-  fetch(`http://localhost:8080/json/${countryCode}.json`)
+  fetch(`/json/${countryCode}.json`)
     .then(function(response) {
       return response.json();
     })
     .then(mapData => {
       const mapComponent = new MapComponent(config, mapData);
       mapComponent.draw();
-      // startListeningNotifications();
+      startListeningNotifications();
     });
 };
 
 loadMap('mx');
 
 
-const socketUrl = `ws://localhost:8081`;
+const socketUrl = `ws://localhost:3000/`;
 const ws = new WebSocket(socketUrl);
 
 ws.onmessage = (event)  => {
-  const currentEvent = JSON.parse(event.data);
-  eventNotifications.push(currentEvent);
+  const events = JSON.parse(event.data);
+  for (const currentEvent of events) {
+    eventNotifications.push(currentEvent);
+  }
 };
 
 ws.onclose = function() {
@@ -84,98 +87,5 @@ ws.onclose = function() {
 };
 
 
-//TODO the notifications will come from a streaming source
-const deNotifications = [
-  {
-    name: 'berlin',
-    value: 1,
-    type: 'notification'
-  },
-  {
-    name: 'brandenburg',
-    value: 1,
-    type: 'notification'
-  },
-  {
-    name: 'bayern',
-    value: 1,
-    type: 'notification'
-  },
-  {
-    name: 'brandenburg',
-    value: 1,
-    type: 'notification'
-  },
-  {
-    name: 'berlin',
-    value: 1,
-    type: 'notification'
-  },
-  {
-    name: 'brandenburg',
-    value: 1,
-    type: 'notification'
-  },
-  {
-    name: 'bayern',
-    value: 1,
-    type: 'notification'
-  },
-  {
-    name: 'brandenburg',
-    value: 1,
-    type: 'notification'
-  },
-  {
-    name: 'berlin',
-    value: 1,
-    type: 'notification'
-  }
-];
-const frNotifications = [
-  {
-    name: 'normandie',
-    value: 1,
-    type: 'notification'
-  },
-  {
-    name: 'nouvelle-aquitaine',
-    value: 1,
-    type: 'notification'
-  },
-  {
-    name: 'occitanie',
-    value: 1,
-    type: 'notification'
-  },
-  {
-    name: 'centre-val_de_loire',
-    value: 1,
-    type: 'notification'
-  }
-];
 
-const mxNotifications = [
-  {
-    name: 'baja_california',
-    value: 1,
-    type: 'notification'
-  },
-  {
-    name: 'veracruz',
-    value: 1,
-    type: 'notification'
-  },
-  {
-    name: 'sonora',
-    value: 1,
-    type: 'notification'
-  },
-  {
-    name: 'morelos',
-    value: 1,
-    type: 'notification'
-  }
-];
-
-const eventNotifications = mxNotifications;
+const eventNotifications = [];
