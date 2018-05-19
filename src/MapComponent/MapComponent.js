@@ -10,12 +10,12 @@ class MapComponent {
     const { height, width } = config;
 
     const projection = config.projection(width, height);
-    const tooltip = d3.select(`.${config.toolTipDomElement}`).style('opacity', 0);
+    const tooltip = d3.select(`.${config.toolTipDomClass}`).style('opacity', 0);
 
     const path = d3.geoPath().projection(projection);
 
     const svg = d3
-      .select(`.${config.mapDomElement}`)
+      .select(`.${config.mapDomClass}`)
       .append('svg')
       .attr('width', '100%')
       .attr('height', height + 'px');

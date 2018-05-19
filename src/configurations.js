@@ -3,8 +3,8 @@ import * as topojson from 'topojson'
 
 const defaultConfig = {
   mapUrl: 'http://localhost:8080/json/mex0.json',
-  mapDomElement: 'map',
-  toolTipDomElement: 'tooltip',
+  mapDomClass: 'map',
+  toolTipDomClass: 'tooltip',
   height: 768,
   width: 1024,
   projection: (width, height) => {

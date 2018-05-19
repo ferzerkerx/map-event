@@ -50,7 +50,7 @@ const loadMap = (countryCode) => {
   const config = configurations[countryCode];
 
   stopListeningNotifications();
-  document.getElementsByClassName(config.mapDomElement)[0].innerHTML = '';
+  document.getElementsByClassName(config.mapDomClass)[0].innerHTML = '';
 
   fetch(config.mapUrl)
     .then(function(response) {
