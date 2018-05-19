@@ -12,7 +12,7 @@ class MapComponent {
     const projection = d3
       .geoMercator()
       .scale(3600)
-      .translate([0, height * 5.4]);
+      .translate([-60, height * 5.4]);
     const tooltip = d3.select(config.toolTipDomElement).style('opacity', 0);
 
     const path = d3.geoPath().projection(projection);
@@ -41,6 +41,7 @@ class MapComponent {
     this.path = path;
     this.mapData = mapData;
     this.svg = svg;
+    this.config = config;
   }
 
   draw() {
@@ -51,7 +52,8 @@ class MapComponent {
       featureExtractor,
       regionDisplayDataExtractor,
       regionClassMapper,
-      mapData
+      mapData,
+      config
     } = this;
     svg
       .append('g')
@@ -89,15 +91,17 @@ class MapComponent {
         MapComponent.onMouseOutHandler(mapEvent);
       });
 
-    svg.call(
-      d3
-        .zoom()
-        .scaleExtent([0.25, 1.5])
-        .on('zoom', function() {
-          const transform = d3.event.transform;
-          svg.attr('transform', transform);
-        })
-    );
+    if (config.zoomEnabled) {
+      svg.call(
+        d3
+          .zoom()
+          .scaleExtent([0.25, 1.5])
+          .on('zoom', function() {
+            const transform = d3.event.transform;
+            svg.attr('transform', transform);
+          })
+      );
+    }
   }
 
   static onMouseOverHandler(mapEvent) {

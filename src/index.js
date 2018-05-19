@@ -2,12 +2,15 @@ import { MapComponent } from './MapComponent/MapComponent';
 
 import * as topojson from 'topojson';
 
+import styles from './app.css';
+
 const config = {
   mapUrl: 'http://localhost:8080/json/de0.json',
-  mapDomElement: 'body',
+  mapDomElement: '.map',
   toolTipDomElement: '.tooltip',
   height: 768,
   width: 1024,
+  zoomEnabled: false,
   featureExtractor: mapData => {
     return topojson.feature(mapData, mapData.objects.state_data).features;
   },
