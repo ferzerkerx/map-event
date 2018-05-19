@@ -14,7 +14,6 @@ document.getElementById('map-selector').addEventListener('change', changedMap);
 const loadMap = countryCode => {
   let notificationTimerId;
 
-  //TODO This can be controlled with a button
   const stopListeningNotifications = () => {
     if (notificationTimerId) {
       window.clearTimeout(notificationTimerId);
@@ -42,9 +41,9 @@ const loadMap = countryCode => {
     }
 
     let currentNotification;
-    let hasNotificationsToProcess = notifications.length > 0;
+    let hasNotificationsToProcess = eventNotifications.length > 0;
     if (hasNotificationsToProcess) {
-      currentNotification = notifications.splice(0, 1)[0];
+      currentNotification = eventNotifications.splice(0, 1)[0];
       let pathName = document.getElementsByClassName(
         currentNotification.name
       )[0];
@@ -70,6 +69,20 @@ const loadMap = countryCode => {
 };
 
 loadMap('mx');
+
+
+const socketUrl = `ws://localhost:8081`;
+const ws = new WebSocket(socketUrl);
+
+ws.onmessage = (event)  => {
+  const currentEvent = JSON.parse(event.data);
+  eventNotifications.push(currentEvent);
+};
+
+ws.onclose = function() {
+  throw 'Lost connection with the server try to reload the page.';
+};
+
 
 //TODO the notifications will come from a streaming source
 const deNotifications = [
@@ -165,4 +178,4 @@ const mxNotifications = [
   }
 ];
 
-const notifications = mxNotifications;
+const eventNotifications = mxNotifications;
