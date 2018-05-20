@@ -1,6 +1,6 @@
 # MapEvent
 [![Build Status](https://travis-ci.org/ferzerkerx/map-event.svg?branch=master)](https://travis-ci.org/ferzerkerx/map-event/)
-[![Quality Gate](https://sonarcloud.io/api/badges/gate?key=com.ferzerkerx%3Amap-event)](https://sonarcloud.io/dashboard/index/com.ferzerkerx%3Amap-event)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=map-event&metric=alert_status)](https://sonarcloud.io/dashboard?id=map-event)
 
 
 ## Overview 
