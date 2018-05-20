@@ -1,4 +1,7 @@
 # MapEvent
+[![Build Status](https://travis-ci.org/ferzerkerx/map-event.svg?branch=master)](https://travis-ci.org/ferzerkerx/map-event/)
+[![Quality Gate](https://sonarcloud.io/api/badges/gate?key=com.ferzerkerx%3Amap-event)](https://sonarcloud.io/dashboard/index/com.ferzerkerx%3Amap-event)
+
 
 ## Overview 
 - Render a map based on a topojson file
