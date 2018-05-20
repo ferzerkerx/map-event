@@ -19,53 +19,62 @@ wss.broadcast = function broadcast(data) {
 
 
 wss.on('connection', function connection(ws) {
-  console.log(`Connected sending info...`);
-  ws.send(JSON.stringify(mxNotifications));
+  console.log(`Connected sending events...`);
+  ws.send(JSON.stringify([...mxNotifications, ...deNotifications, ...frNotifications]));
 });
 
 
 const deNotifications = [
   {
+    country: 'de',
     name: 'berlin',
     value: 1,
     type: 'notification'
   },
   {
+    country: 'de',
     name: 'brandenburg',
     value: 1,
     type: 'notification'
   },
   {
+    country: 'de',
     name: 'bayern',
     value: 1,
     type: 'notification'
   },
   {
+    country: 'de',
     name: 'brandenburg',
     value: 1,
     type: 'notification'
   },
   {
+    country: 'de',
     name: 'berlin',
     value: 1,
     type: 'notification'
   },
   {
+    country: 'de',
     name: 'brandenburg',
     value: 1,
     type: 'notification'
   },
   {
+    country: 'de',
     name: 'bayern',
     value: 1,
     type: 'notification'
   },
   {
+    country: 'de',
     name: 'brandenburg',
     value: 1,
     type: 'notification'
   },
   {
+    country: 'de',
     name: 'berlin',
     value: 1,
     type: 'notification'
@@ -73,21 +82,25 @@ const deNotifications = [
 ];
 const frNotifications = [
   {
+    country: 'fr',
     name: 'normandie',
     value: 1,
     type: 'notification'
   },
   {
+    country: 'fr',
     name: 'nouvelle-aquitaine',
     value: 1,
     type: 'notification'
   },
   {
+    country: 'fr',
     name: 'occitanie',
     value: 1,
     type: 'notification'
   },
   {
+    country: 'fr',
     name: 'centre-val_de_loire',
     value: 1,
     type: 'notification'
@@ -96,21 +109,25 @@ const frNotifications = [
 
 const mxNotifications = [
   {
+    country: 'mx',
     name: 'baja_california',
     value: 1,
     type: 'notification'
   },
   {
+    country: 'mx',
     name: 'veracruz',
     value: 1,
     type: 'notification'
   },
   {
+    country: 'mx',
     name: 'sonora',
     value: 1,
     type: 'notification'
   },
   {
+    country: 'mx',
     name: 'morelos',
     value: 1,
     type: 'notification'

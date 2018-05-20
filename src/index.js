@@ -33,7 +33,8 @@ const loadMap = countryCode => {
   };
 
   const pickNotification = previousNotification => {
-    if (previousNotification) {
+    let shouldRestorePreviousHighlightedRegion = previousNotification && previousNotification.country === countryCode
+    if (shouldRestorePreviousHighlightedRegion) {
       let pathName = document.getElementsByClassName(
         previousNotification.name
       )[0];
@@ -44,17 +45,19 @@ const loadMap = countryCode => {
     let hasNotificationsToProcess = eventNotifications.length > 0;
     if (hasNotificationsToProcess) {
       currentNotification = eventNotifications.splice(0, 1)[0];
-      let pathName = document.getElementsByClassName(
-        currentNotification.name
-      )[0];
-      pathName.style.fill = 'pink';
+      if (currentNotification.country === countryCode) {
+        let pathName = document.getElementsByClassName(
+          currentNotification.name
+        )[0];
+        console.log(`currentNotification.name: ${currentNotification.name}`);
+        pathName.style.fill = 'pink';
+      }
     }
     keepListeningNotifications(currentNotification);
   };
 
   const config = configurations[countryCode];
 
-  //TODO delete all notifications
   stopListeningNotifications();
   document.getElementsByClassName(config.mapDomClass)[0].innerHTML = '';
 
