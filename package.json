@@ -11,7 +11,7 @@
     "prettier": "prettier --single-quote --write './src/**/*.js'"
   },
   "author": "",
-  "license": "MIT",
+  "license": "GPLv3",
   "dependencies": {
     "d3": "^5.4.0",
     "d3-geo-projection": "^2.4.0",
