@@ -10,7 +10,7 @@ class MapEventApplication {
   _changedMap(event, mapApp) {
     let countryCode = event.target.value;
     mapApp.stopListeningNotifications();
-    this.notificationTimerId = loadMap(countryCode).then(() =>
+    loadMap(countryCode).then(() =>
       mapApp.startListeningNotifications()
     );
     mapApp.countryCode = countryCode;
@@ -28,12 +28,12 @@ class MapEventApplication {
   }
 
   startListeningNotifications() {
-    const wrapper = () => this.pickNotification();
+    const wrapper = () => this._pickNotification();
     this.notificationTimerId = window.setTimeout(wrapper, 2000);
   }
 
   keepListeningNotifications(currentNotification) {
-    const wrapper = () => this.pickNotification(currentNotification);
+    const wrapper = () => this._pickNotification(currentNotification);
     this.notificationTimerId = window.setTimeout(wrapper, 5000);
   }
 
@@ -53,7 +53,7 @@ class MapEventApplication {
     return currentNotification;
   }
 
-  pickNotification(previousNotification) {
+  _pickNotification(previousNotification) {
     let shouldRestorePreviousHighlightedRegion =
       previousNotification && previousNotification.country === this.countryCode;
     if (shouldRestorePreviousHighlightedRegion) {
@@ -93,7 +93,7 @@ class MapEventApplication {
   start(socketUrl) {
     this._addEventListeners();
     this._startNotificationsSocket(socketUrl);
-    this.notificationTimerId = loadMap(this.countryCode).then(() =>
+    loadMap(this.countryCode).then(() =>
       this.startListeningNotifications()
     );
   }
