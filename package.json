@@ -1,5 +1,5 @@
 {
-  "name": "world-location-event",
+  "name": "map-event",
   "version": "1.0.0",
   "description": "highlights for a few seconds a region in a map based on input event data",
   "scripts": {
