@@ -5,6 +5,16 @@
 - Highlight areas in a map when an event occurs matching the region name
 - mouse over provides shows a toolip with region information
 
+![alt tag](https://raw.githubusercontent.com/ferzerkerx/map-event/master/screenshots/mx.png)
+![alt tag](https://raw.githubusercontent.com/ferzerkerx/map-event/master/screenshots/fr.png)
+![alt tag](https://raw.githubusercontent.com/ferzerkerx/map-event/master/screenshots/de.png)
+![alt tag](https://raw.githubusercontent.com/ferzerkerx/map-event/master/screenshots/fr2.png)
+
+
+## How to use
+ - yarn install
+ - yarn start to start the application
+ - yarn server to start notification server
 
 ## How to create a topojson map
 - download a map shipfile zip file from: https://gadm.org/download_country_v3.html
