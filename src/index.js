@@ -32,25 +32,33 @@ const loadMap = countryCode => {
     );
   };
 
-  const pickNotification = previousNotification => {
-    let shouldRestorePreviousHighlightedRegion = previousNotification && previousNotification.country === countryCode
-    if (shouldRestorePreviousHighlightedRegion) {
-      let pathName = document.getElementsByClassName(
-        previousNotification.name
-      )[0];
-      pathName.style.fill = 'green';
-    }
+  const _updateRegionFillColor = (regionName, fill = 'green') => {
+    let pathName = document.getElementsByClassName(
+      regionName
+    )[0]
+    pathName.style.fill = fill
+  }
 
+  const _getCurrentNotification = () => {
     let currentNotification;
     let hasNotificationsToProcess = eventNotifications.length > 0;
     if (hasNotificationsToProcess) {
       currentNotification = eventNotifications.splice(0, 1)[0];
+    }
+    return currentNotification;
+  }
+
+  const pickNotification = previousNotification => {
+    let shouldRestorePreviousHighlightedRegion = previousNotification && previousNotification.country === countryCode
+    if (shouldRestorePreviousHighlightedRegion) {
+      _updateRegionFillColor(previousNotification.name, 'green')
+    }
+
+    let currentNotification = _getCurrentNotification();
+    if (currentNotification) {
       if (currentNotification.country === countryCode) {
-        let pathName = document.getElementsByClassName(
-          currentNotification.name
-        )[0];
+        _updateRegionFillColor(currentNotification.name, 'pink')
         console.log(`currentNotification.name: ${currentNotification.name}`);
-        pathName.style.fill = 'pink';
       }
     }
     keepListeningNotifications(currentNotification);
