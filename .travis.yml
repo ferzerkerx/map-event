@@ -16,6 +16,6 @@ install:
 script:
 - npm run build
 - sonar-scanner
-- snyk test
+
 after_success:
 - snyk monitor
