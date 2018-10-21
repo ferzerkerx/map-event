@@ -14,7 +14,7 @@ install:
 - npm install
 - npm install -g snyk
 script:
-- npm run build
+- yarn build
 - sonar-scanner
 
 after_success:
