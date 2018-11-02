@@ -10,9 +10,7 @@ class MapEventApplication {
   _changedMap(event, mapApp) {
     let countryCode = event.target.value;
     mapApp.stopListeningNotifications();
-    loadMap(countryCode).then(() =>
-      mapApp.startListeningNotifications()
-    );
+    loadMap(countryCode).then(() => mapApp.startListeningNotifications());
     mapApp.countryCode = countryCode;
   }
 
@@ -93,9 +91,7 @@ class MapEventApplication {
   start(socketUrl) {
     this._addEventListeners();
     this._startNotificationsSocket(socketUrl);
-    loadMap(this.countryCode).then(() =>
-      this.startListeningNotifications()
-    );
+    loadMap(this.countryCode).then(() => this.startListeningNotifications());
   }
 }
 
