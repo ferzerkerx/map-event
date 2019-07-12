@@ -14,7 +14,7 @@
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "d3": "^5.4.0",
-    "d3-geo-projection": "^2.4.0",
+    "d3-geo-projection": "^2.7.0",
     "topojson": "^3.0.2"
   },
   "devDependencies": {
