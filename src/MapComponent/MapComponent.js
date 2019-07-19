@@ -101,8 +101,7 @@ class MapComponent {
   }
 
   static onMouseOverHandler(mapEvent) {
-    d3
-      .select(mapEvent.regionPath)
+    d3.select(mapEvent.regionPath)
       .attr('d', mapEvent.path)
       .style('fill', 'yellow');
     mapEvent.tooltip.style('opacity', 0.9);
@@ -114,8 +113,7 @@ class MapComponent {
   }
 
   static onMouseOutHandler(mapEvent) {
-    d3
-      .select(mapEvent.regionPath)
+    d3.select(mapEvent.regionPath)
       .attr('d', mapEvent.path)
       .style('fill', 'green');
     mapEvent.tooltip.style('opacity', 0);

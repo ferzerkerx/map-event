@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
@@ -16,7 +16,7 @@ module.exports = {
        contentBase: 'dist'
    },
   plugins:[
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin({cleanOnceBeforeBuildPatterns:['dist']}),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/index.html'
