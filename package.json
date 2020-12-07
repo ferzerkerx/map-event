@@ -13,7 +13,7 @@
   "author": "",
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "d3": "^5.9.7",
+    "d3": "^6.3.0",
     "d3-geo-projection": "^2.7.0",
     "topojson": "^3.0.2"
   },
